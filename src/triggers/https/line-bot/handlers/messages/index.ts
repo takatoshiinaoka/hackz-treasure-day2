@@ -9,6 +9,8 @@ export const messagesHandler = async (event: MessageEvent): Promise<void> => {
     switch (event.message.type) {
       case 'text':
         return await messageTextHandler(event)
+      case 'image':
+        return await messageImageHandler(event)
       default:
         await lineClient.replyMessage(event.replyToken, msgOther)
     }
